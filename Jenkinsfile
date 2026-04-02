@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'git@github.com:farhanniqom/belajar-jenkins.git'
+                git branch: 'main', url: 'git@github.com:farhanniqom/belajar-jenkins.git'
             }
         }
 
