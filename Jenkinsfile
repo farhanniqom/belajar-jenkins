@@ -2,15 +2,18 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Clone Repository') {
             steps {
-                echo 'Build jalan...'
+                git 'git@github.com:farhanniqom/belajar-jenkins.git'
             }
         }
 
-        stage('Test') {
+        stage('Deploy') {
             steps {
-                sh 'echo "CI dari Jenkins berhasil!"'
+                sh '''
+                sudo rm -rf /var/www/html/*
+                sudo cp -r * /var/www/html/
+                '''
             }
         }
     }
