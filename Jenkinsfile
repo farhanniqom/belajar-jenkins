@@ -1,19 +1,14 @@
 pipeline {
-    agent any
+    agent {
+        node {
+            label 'linux'
+        }
+    }
 
     stages {
-        stage('Clone Repository') {
+        stage('Hello') {
             steps {
-                git branch: 'main', url: 'git@github.com:farhanniqom/belajar-jenkins.git'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                sh '''
-                rm -rf /var/www/html/*
-                cp -r * /var/www/html/
-                '''
+                echo 'Hello world'
             }
         }
     }
